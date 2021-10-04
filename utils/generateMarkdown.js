@@ -1,3 +1,5 @@
+const fs = require("fs");
+
 function renderLicenseBadge(license) {
   let badge = "[![badge]";
 
@@ -46,8 +48,14 @@ function renderLicenseLink(license) {
   }
 }
 
-function renderLicenseSection(license) {
+function renderLicenseSection(license, name) {
+  let currentDate = new Date();
+  let contents = fs.readFileSync(`./licenses/${license}.txt`, 'utf8');
 
+  contents = contents.replace("[yyyy]", currentDate.getFullYear());
+  contents = contents.replace("[name of copyright owner]", name);
+
+  return contents;
 }
 
 function generateMarkdown(data) {
@@ -78,7 +86,7 @@ ${data.usage}
 ${renderLicenseBadge(data.license)}${renderLicenseLink(data.license)}
 
 \`\`\`md
-${renderLicenseSection(data.license)}
+${renderLicenseSection(data.license, data.name)}
 \`\`\`
 
 ## Contribution Guidelines
