@@ -12,9 +12,6 @@ This project is a command-line application that dynamically generates a professi
 * [Contribution Guidelines](#contribution)
 * [Test](#test)
 
-## Video
-https://watch.screencastify.com/v/6O4O7ot3NOH5VUrHhl6I
-
 ## Installations
 
 The user has to run npm init first. Then after that is done, run npm install. Once all the node module are installed, the program is ready to be executed by typing node index.
